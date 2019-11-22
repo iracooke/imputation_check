@@ -36,10 +36,8 @@ Note that it keeps track of the position and also the index of the sample that w
 
 3. Perform your imputation. Eg with shapeit or beagle.  As input you should use the filtered file `sc01_deep_null.vcf` .  As output you should get a fully imputed vcf.  Let's assume it is called `sc01_haps.txt.vcf`
 
-4. Compare the imputed with the original result
+4. Compare the imputed with the original result to extract a list of genotypes for the imputed sites
 
 ```bash
-compare_vcf.py Sc0000000_haps.txt.vcf Sc0000000_null.txt > Sc0000000_null.imputed.txt
-join Sc0000000_null.refalt.txt Sc0000000_null.imputed.txt | tr '|' '/' > Sc0000000_null.compare.tsv
-
+compare_vcf.py sc01_haps.txt.vcf sc01_deep_null.txt > sc01_deep_null.imputed.txt
 ```
